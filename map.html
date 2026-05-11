@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GTA 6 Map – Interactive Vice City & Leonida Map</title>
+  <meta name="description" content="探索GTA 6互动地图，查看Vice City和Leonida州的所有已知地点、预告片场景、泄露内容和官方截图。">
+
+  <!-- OpenLayers -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@7.4.0/ol.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <!-- Map Styles -->
+  <link rel="stylesheet" href="map-style.css">
+</head>
+<body>
+
+<!-- Mobile Header -->
+<header class="mobile-header">
+  <div class="mobile-header-left">
+    <a href="index.html" class="mobile-logo-link">
+      <span class="logo-gta">GTA</span><span class="logo-vi">VI</span>
+    </a>
+  </div>
+  <div class="mobile-header-right">
+    <button id="filter-toggle" class="icon-button" aria-label="Toggle filters">
+      <i class="fas fa-sliders-h"></i>
+    </button>
+  </div>
+</header>
+
+<!-- Map Wrapper -->
+<div id="map-wrapper">
+
+  <!-- Sidebar -->
+  <div id="map-menu" class="sidebar">
+    <button id="sidebar-toggle-desktop" class="sidebar-toggle-btn" aria-label="Toggle sidebar">
+      <i class="fas fa-angle-left"></i>
+    </button>
+
+    <div class="sidebar-inner">
+
+      <!-- Sidebar Header -->
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-logo-link">
+          <span class="logo-gta" style="font-family:'Orbitron',sans-serif;font-size:1.8rem;font-weight:900;">GTA</span><span class="logo-vi" style="font-family:'Orbitron',sans-serif;font-size:1.8rem;font-weight:900;color:#00d4ff;text-shadow:0 0 10px #00d4ff;">VI</span>
+        </a>
+        <div class="sidebar-header-subtitle">INTERACTIVE MAP</div>
+        <div class="sidebar-header-meta">
+          <span class="sidebar-header-chip"><span id="total-marker-count">0</span> Markers</span>
+          <span class="sidebar-header-chip">4 Layers</span>
+          <span class="sidebar-header-chip">Community Driven</span>
+        </div>
+      </div>
+
+      <!-- Map Layer Panel -->
+      <div id="map-switcher" class="map-layer-panel">
+        <div class="map-layer-card map-layer-card-primary">
+          <div class="map-layer-row">
+            <div class="map-layer-title-wrap">
+              <span class="map-layer-kicker">MAP LAYER</span>
+              <span class="map-layer-title">GTA VI Map</span>
+            </div>
+            <label class="toggle-switch map-toggle">
+              <input type="checkbox" id="gta6-toggle-sidebar" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="map-layer-style-block" id="gta6-style-block">
+            <span class="map-layer-subtitle">Style</span>
+            <div class="map-style-segment">
+              <button id="gta6-style-colour-sidebar" class="map-style-option active" type="button">Colour</button>
+              <button id="gta6-style-black-sidebar" class="map-style-option" type="button">Black</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-layer-card">
+          <div class="map-layer-row">
+            <div class="map-layer-title-wrap">
+              <span class="map-layer-kicker">Map Layer</span>
+              <span class="map-layer-title">GTA Online Map</span>
+            </div>
+            <label class="toggle-switch map-toggle">
+              <input type="checkbox" id="gta5-toggle-sidebar">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="map-layer-opacity">
+            <span class="map-layer-subtitle">Overlay Strength</span>
+            <div class="opacity-control">
+              <input type="range" id="gta5-opacity-slider" min="0" max="100" step="5" value="100">
+              <span id="gta5-opacity-value">100%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lang-switch-desktop">
+          <button data-lang="en" class="lang-btn active" type="button">EN</button>
+        </div>
+      </div>
+
+      <!-- Search -->
+      <div class="sidebar-filter-panel">
+        <div class="global-search">
+          <input type="text" id="search-input" placeholder="Search by location, type, description...">
+          <div class="search-help-text">Tip: You can also search by coordinates</div>
+          <ul id="search-results" class="search-results-list"></ul>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="filter-quick-section">
+          <div class="filter-box">
+            <div class="filter-box-title">Marker Filters</div>
+            <div class="category-group category-toggles">
+
+              <label class="category-toggle category-master-toggle">
+                <div class="category-toggle-left">
+                  <span class="category-toggle-title">
+                    <span>Show all Markers</span>
+                    <span class="filter-count" id="all-marker-count"></span>
+                  </span>
+                </div>
+                <div class="toggle-switch">
+                  <input type="checkbox" id="toggle-all-markers" checked>
+                  <span class="toggle-slider"></span>
+                </div>
+              </label>
+
+              <label class="category-toggle category-landscape">
+                <div class="category-toggle-left">
+                  <span class="category-toggle-title">
+                    <i class="fas fa-mountain" style="color:#ff3c3c;"></i>
+                    Landscape
+                    <span class="filter-count" data-type="landscape"></span>
+                  </span>
+                </div>
+                <div class="toggle-switch">
+                  <input type="checkbox" data-type="landscape" checked>
+                  <span class="toggle-slider"></span>
+                </div>
+              </label>
+
+              <label class="category-toggle category-trailer">
+                <div class="category-toggle-left">
+                  <span class="category-toggle-title">
+                    <i class="fas fa-film" style="color:#b538b7;"></i>
+                    Trailer
+                    <span class="filter-count" data-type="trailer"></span>
+                  </span>
+                </div>
+                <div class="toggle-switch">
+                  <input type="checkbox" data-type="trailer" checked>
+                  <span class="toggle-slider"></span>
+                </div>
+              </label>
+
+              <label class="category-toggle category-leak">
+                <div class="category-toggle-left">
+                  <span class="category-toggle-title">
+                    <i class="fas fa-user-secret" style="color:#00b4ff;"></i>
+                    Leaks
+                    <span class="filter-count" data-type="leak"></span>
+                  </span>
+                </div>
+                <div class="toggle-switch">
+                  <input type="checkbox" data-type="leak" checked>
+                  <span class="toggle-slider"></span>
+                </div>
+              </label>
+
+              <label class="category-toggle category-screenshot">
+                <div class="category-toggle-left">
+                  <span class="category-toggle-title">
+                    <i class="fas fa-camera" style="color:#ffc800;"></i>
+                    Screenshots
+                    <span class="filter-count" data-type="screenshot"></span>
+                  </span>
+                </div>
+                <div class="toggle-switch">
+                  <input type="checkbox" data-type="screenshot" checked>
+                  <span class="toggle-slider"></span>
+                </div>
+              </label>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+        <div class="sidebar-legal">
+          <p>Rockstar Games and Grand Theft Auto are registered trademarks of Take-Two Interactive Software Inc.</p>
+          <p>GTAdb is not affiliated with Rockstar Games or Take-Two Interactive.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Map Container -->
+  <div id="map"></div>
+
+  <!-- Map Controls -->
+  <div id="map-control-panel" class="map-control-panel" aria-label="Map controls">
+    <div class="map-control-section zoom-section">
+      <button id="zoom-in-btn" class="map-control-btn zoom-btn" type="button" aria-label="Zoom in">+</button>
+      <button id="zoom-out-btn" class="map-control-btn zoom-btn" type="button" aria-label="Zoom out">−</button>
+    </div>
+    <div class="map-control-section action-section">
+      <button id="credits-btn" class="map-control-btn" type="button" aria-label="Credits">
+        <i class="fa-solid fa-heart"></i>
+      </button>
+      <button id="share-btn" class="map-control-btn" type="button" aria-label="Share map">
+        <i class="fa-solid fa-link"></i>
+      </button>
+      <a href="https://x.com/PayZed" target="_blank" rel="noopener noreferrer" class="map-control-btn map-x-btn" title="Follow map updates on X">
+        <i class="fa-brands fa-x-twitter"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Mouse Coordinates -->
+  <div id="mouse-coords">X: 00000 Y: 00000</div>
+
+  <!-- Marker Tooltip -->
+  <div id="marker-tooltip" class="marker-tooltip"></div>
+
+  <!-- Popup -->
+  <div id="popup" class="ol-popup">
+    <div id="popup-content"></div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox-overlay" class="lightbox-overlay" style="display:none;">
+    <button id="lightbox-close" class="lightbox-close">&times;</button>
+    <img id="lightbox-image" src="" alt="Preview">
+  </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/ol@7.4.0/dist/ol.js"></script>
+<script src="map-app.js"></script>
+
+</body>
+</html>

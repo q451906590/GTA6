@@ -1,0 +1,194 @@
+/* =========================================================
+   MAP CONTROL PANEL
+   Rechte Kartensteuerung
+   Aktuell nur für Zoom
+   ========================================================= */
+
+#map-control-panel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1200;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  width: 52px;
+  padding: 8px;
+
+  background: rgba(20, 20, 20, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.map-control-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.map-control-btn i {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.map-control-btn:hover {
+  transform: translateY(-1px);
+  transition: all .18s ease;
+}
+
+.map-control-btn,
+.zoom-btn {
+  width: 100%;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+  cursor: pointer;
+
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(17, 23, 34, 0.78);
+  color: rgba(255,255,255,0.8);
+  transition: background 0.18s ease, transform 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.zoom-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 6px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.zoom-btn {
+  width: 100%;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+}
+
+.zoom-btn:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.14);
+  transform: translateY(-1px);
+}
+
+.zoom-btn:active {
+  transform: translateY(0);
+}
+
+#credits-btn {
+  background: rgba(17, 23, 34, 0.78);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.8);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1rem;
+}
+
+#credits-btn:hover {
+  color: #ff6a7f;
+  text-shadow: 0 0 6px rgba(255,106,127,0.6);
+}
+
+#credits-btn::after {
+  content: "Credits";
+  position: absolute;
+  right: 60px;
+  background: rgba(17,23,34,0.95);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .15s ease;
+}
+
+#credits-btn:hover::after {
+  opacity: 1;
+}
+
+#share-btn {
+  background: none;
+  color: rgba(255,255,255,0.8);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1rem;
+}
+
+#share-btn:hover {
+  color: #6ad1ff;
+  text-shadow: 0 0 6px rgba(106,209,255,0.6);
+}
+
+#share-btn::after {
+  content: "Copy map link";
+  position: absolute;
+  right: 60px;
+
+  background: rgba(17,23,34,0.95);
+  color: white;
+
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .15s ease;
+}
+
+#share-btn:hover::after {
+  opacity: 1;
+}
+
+/* =========================================================
+   MOBILE MAP CONTROL PANEL
+   ========================================================= */
+
+@media (max-width: 768px) {
+  #map-control-panel {
+    top: 76px;
+    right: 10px;
+    width: 52px;
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .zoom-btn {
+    height: 36px;
+    font-size: 18px;
+  }
+}
