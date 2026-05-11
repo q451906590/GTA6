@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GTA6 攻略站 | 开荒、赚钱、任务速通</title>
+    <meta
+      name="description"
+      content="GTA6 中文攻略站：开荒路线、主支线任务、刷钱方法、地图区域、武器载具推荐。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="logo" href="#top" aria-label="GTA6 攻略站主页">
+          <span class="logo-mark">VI</span>
+          <span>GTA6 攻略站</span>
+        </a>
+        <nav class="nav-links" aria-label="主导航">
+          <a href="#starter">新手开荒</a>
+          <a href="#missions">任务攻略</a>
+          <a href="#map">地图与势力</a>
+          <a href="#builds">武器与载具</a>
+          <a href="#money">刷钱路线</a>
+          <a href="#faq">常见问题</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow">Vice City 生存指南</p>
+            <h1>GTA6 一站式中文攻略</h1>
+            <p class="hero-text">
+              从开局 2 小时路线到中后期高收益玩法，帮你快速建立资金、装备和地盘优势。
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#missions">立即查看任务攻略</a>
+              <a class="btn btn-secondary" href="#starter">查看开荒清单</a>
+            </div>
+            <p class="disclaimer">
+              注：本站内容用于攻略整理与玩法参考，后续会根据正式版本持续更新。
+            </p>
+          </div>
+          <aside class="hero-panel" aria-label="关键进度指标">
+            <h2>今日目标</h2>
+            <ul>
+              <li>
+                <strong>60 分钟</strong>
+                <span>解锁第一把稳定主战武器</span>
+              </li>
+              <li>
+                <strong>90 分钟</strong>
+                <span>完成首条高收益支线链</span>
+              </li>
+              <li>
+                <strong>120 分钟</strong>
+                <span>建立可循环刷钱流程</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="starter" class="section container">
+        <div class="section-head">
+          <h2>新手开荒清单</h2>
+          <p>勾选后会自动保存到本地，下次打开可继续。</p>
+        </div>
+        <div class="checklist-card">
+          <div class="checklist-progress">
+            <span>完成进度</span>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <span id="progressText">0 / 0</span>
+          </div>
+          <ul class="checklist" id="checklist"></ul>
+        </div>
+      </section>
+
+      <section id="missions" class="section section-alt">
+        <div class="container">
+          <div class="section-head">
+            <h2>任务攻略检索</h2>
+            <p>按任务类型筛选，或输入关键词快速定位。</p>
+          </div>
+          <div class="mission-controls">
+            <div class="tabs" role="tablist" aria-label="任务类型筛选">
+              <button class="tab is-active" data-filter="all">全部</button>
+              <button class="tab" data-filter="main">主线</button>
+              <button class="tab" data-filter="side">支线</button>
+              <button class="tab" data-filter="heist">抢劫</button>
+            </div>
+            <label class="search-input">
+              <span class="sr-only">搜索任务</span>
+              <input id="missionSearch" type="search" placeholder="搜索任务名或关键奖励..." />
+            </label>
+          </div>
+          <div id="missionGrid" class="mission-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="map" class="section container">
+        <div class="section-head">
+          <h2>地图与势力要点</h2>
+          <p>优先掌握这 4 个区域，决定前中期推进效率。</p>
+        </div>
+        <div class="region-grid">
+          <article class="region-card">
+            <h3>Ocean Drive</h3>
+            <p>警力巡逻密集但商店点位集中，适合夜间快抢快撤。</p>
+          </article>
+          <article class="region-card">
+            <h3>Little Cuba</h3>
+            <p>地形复杂、巷战多，推荐携带冲锋枪与高机动载具。</p>
+          </article>
+          <article class="region-card">
+            <h3>Port Gellhorn</h3>
+            <p>黑市交易与改装资源丰富，可作为中期经济据点。</p>
+          </article>
+          <article class="region-card">
+            <h3>Leonida Wetlands</h3>
+            <p>适合低热度潜行任务，快速积累支线声望。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="builds" class="section section-alt">
+        <div class="container">
+          <div class="section-head">
+            <h2>武器与载具推荐</h2>
+            <p>按使用阶段划分，避免前期过度投入。</p>
+          </div>
+          <div class="build-grid">
+            <article class="build-card">
+              <h3>武器路线</h3>
+              <ol>
+                <li><strong>前期：</strong>9mm 手枪 + 基础冲锋枪，控制补给成本。</li>
+                <li><strong>中期：</strong>突击步枪 + 穿甲弹，应对装甲目标。</li>
+                <li><strong>后期：</strong>狙击枪 + 消音副武器，兼顾远程与潜入。</li>
+              </ol>
+            </article>
+            <article class="build-card">
+              <h3>载具路线</h3>
+              <ol>
+                <li><strong>前期：</strong>高加速街车，优先逃脱能力。</li>
+                <li><strong>中期：</strong>耐久 SUV，兼顾任务与越野地形。</li>
+                <li><strong>后期：</strong>改装跑车 + 备用摩托，适配多任务切换。</li>
+              </ol>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="money" class="section container">
+        <div class="section-head">
+          <h2>刷钱 3 步循环</h2>
+          <p>高稳定收益，适合单人重复执行。</p>
+        </div>
+        <div class="money-flow">
+          <article>
+            <span class="step-index">01</span>
+            <h3>做高回报支线</h3>
+            <p>优先选择“风险低 + 奖励高”的取货、护送类任务。</p>
+          </article>
+          <article>
+            <span class="step-index">02</span>
+            <h3>改装并出售载具</h3>
+            <p>利用黑市改装折价窗口，集中处理高利润车型。</p>
+          </article>
+          <article>
+            <span class="step-index">03</span>
+            <h3>重置路线再循环</h3>
+            <p>通过时间段切换刷新任务池，持续稳定进账。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="faq" class="section section-alt">
+        <div class="container">
+          <div class="section-head">
+            <h2>常见问题</h2>
+          </div>
+          <div class="faq-list">
+            <details>
+              <summary>前期钱不够，先升级武器还是车？</summary>
+              <p>优先保证一把中距离稳定输出武器，再做基础车辆改装。</p>
+            </details>
+            <details>
+              <summary>被通缉后最快脱身方法？</summary>
+              <p>先离开主干道，进入小巷或水域边缘区域，再切换低曝光载具。</p>
+            </details>
+            <details>
+              <summary>如何挑选第一条主线推进路径？</summary>
+              <p>选奖励包含“新任务链解锁”或“装备权限”的主线，收益更大。</p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal" id="missionModal" hidden>
+      <div class="modal-backdrop" data-close-modal></div>
+      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" data-close-modal aria-label="关闭">×</button>
+        <h3 id="modalTitle"></h3>
+        <p id="modalType"></p>
+        <p id="modalReward"></p>
+        <p id="modalTips"></p>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>GTA6 攻略站 · 持续更新中</p>
+      </div>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
