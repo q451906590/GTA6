@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTA VI 情报地图 | 角色、剧情与攻略分析</title>
+    <meta name="description" content="基于Rockstar官方资料、预告片和可信社区记录整理的GTA VI互动地图、角色档案、剧情分析与发售前攻略。">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1700375385406809"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <canvas id="particles"></canvas>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo"><span class="logo-gta">GTA</span><span class="logo-vi">VI</span></a>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">概览</a></li>
+                <li><a href="#map">互动地图</a></li>
+                <li><a href="#characters">角色</a></li>
+                <li><a href="#story">剧情</a></li>
+                <li><a href="#tips">攻略分析</a></li>
+                <li><a href="#sources">资料来源</a></li>
+            </ul>
+            <div class="menu-toggle" aria-label="菜单">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero intelligence-hero" style="background-image:url('https://www.rockstargames.com/VI/_next/image?url=/VI/_next/static/media/Hero_BG.4006b243.jpg&w=3840&q=75');">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="https://www.rockstargames.com/VI/_next/image?url=/VI/_next/static/media/gtaLogoGlow.3c26119a.png&w=2048&q=100" alt="GTA VI Logo" class="logo-img">
+            </div>
+            <p class="eyebrow">更新至 2026-05-11 · 官方资料优先</p>
+            <h1 class="glitch" data-text="LEONIDA INTEL">LEONIDA INTEL</h1>
+            <h2 class="subtitle">互动地图 · 角色档案 · 剧情线索 · 实战准备</h2>
+            <p class="tagline">这是发售前情报站，不把传闻写成事实。官方确认内容、预告片可观察信息、社区流传线索会分层标注，方便你围绕GTA VI的Leonida州做路线、角色关系和玩法准备。</p>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-number">11.19</span><span class="stat-label">2026发售</span></div>
+                <div class="stat"><span class="stat-number">1421</span><span class="stat-label">地图标记</span></div>
+                <div class="stat"><span class="stat-number">PS5</span><span class="stat-label">Xbox Series X|S</span></div>
+            </div>
+            <div class="hero-actions">
+                <a href="map.html" target="_blank" class="cta-button"><i class="fas fa-map-location-dot"></i> 打开全屏互动地图</a>
+                <a href="#characters" class="ghost-button">查看角色资料</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="map" class="section map-first-section">
+        <div class="container">
+            <h2 class="section-title">互动地图</h2>
+            <p class="map-intro">本项目只保留一套地图：全屏OpenLayers互动地图。它对齐GTADB的GTA VI地图实现，支持真实瓦片底图、彩色/黑色样式、GTA Online对比图层、搜索、分类筛选、坐标显示和标记弹窗。</p>
+            <div class="map-launch-panel full-map-only">
+                <div class="map-preview-frame">
+                    <img src="https://www.rockstargames.com/VI/_next/image?url=/VI/_next/static/media/Vice_City_02.1c840675.jpg&w=1920&q=75" alt="Vice City地图预览">
+                    <div class="map-preview-overlay">
+                        <span>GTA VI Map</span>
+                        <strong>Leonida / Vice City</strong>
+                    </div>
+                </div>
+                <div class="map-launch-copy">
+                    <span class="source-pill confirmed">已实现</span>
+                    <h3>全屏互动地图是唯一地图入口</h3>
+                    <p>移除了首页里的任务地图、区域概览假地图和虚构任务标记，避免误导。所有地点探索都通过真实互动地图完成。</p>
+                    <div class="map-launch-features">
+                        <span class="map-launch-feature"><i class="fas fa-mountain"></i> 地标</span>
+                        <span class="map-launch-feature"><i class="fas fa-film"></i> 预告片场景</span>
+                        <span class="map-launch-feature"><i class="fas fa-user-secret"></i> 泄露/社区标记</span>
+                        <span class="map-launch-feature"><i class="fas fa-camera"></i> 官方截图</span>
+                    </div>
+                    <a href="map.html" target="_blank" class="map-launch-btn"><i class="fas fa-up-right-from-square"></i> 打开 map.html</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="characters" class="section section-dark">
+        <div class="container">
+            <div class="section-heading-row">
+                <div>
+                    <h2 class="section-title">角色档案</h2>
+                    <p class="section-note">包含Rockstar正式建档角色、正式资料中被点名的人物，以及社区/预告片识别出的未确认角色。</p>
+                </div>
+                <div class="filter-controls" aria-label="角色筛选">
+                    <button class="filter-btn active" data-character-filter="all">全部</button>
+                    <button class="filter-btn" data-character-filter="confirmed">官方建档</button>
+                    <button class="filter-btn" data-character-filter="mentioned">官方提及</button>
+                    <button class="filter-btn" data-character-filter="rumor">流传未确认</button>
+                </div>
+            </div>
+
+            <div class="characters-grid expanded-characters">
+                <article class="character-card intel-card" data-character-status="confirmed">
+                    <div class="character-image"><img src="https://www.rockstargames.com/VI/_next/image?url=/VI/_next/static/media/Jason_Duval_01.6e287338.jpg&w=1920&q=75" alt="Jason Duval"></div>
+                    <div class="character-info">
+                        <span class="source-pill confirmed">官方建档 · 可玩主角</span>
+                        <h3>Jason Duval</h3>
+                        <p class="character-role">前军人背景 · Keys毒品跑腿 · Lucia搭档</p>
+                        <p class="character-desc">官方设定里，Jason从骗子与罪犯环境中长大，曾短暂从军，后来在Keys为当地毒贩工作。他想要简单生活，但和Lucia的关系会把他推向更大的风险。</p>
+                        <button class="detail-toggle">关系线索</button>
+                        <div class="detail-panel">关键关系：Lucia是他的情感与犯罪搭档；Brian让他住在房产里换取跑腿；Cal是朋友兼Brian同伙。</div>
+                    </div>
+                </article>
+
+                <article class="character-card intel-card" data-character-status="confirmed">
+                    <div class="character-image"><img src="https://www.rockstargames.com/VI/_next/image?url=/VI/_next/static/media/Lucia_Caminos_01.f5023e0f.jpg&w=1920&q=75" alt="Lucia Caminos"></div>
+                    <div class="character-info">
+                        <span class="source-pill confirmed">官方建档 · 可玩主角</span>
+                        <h3>Lucia Caminos</h3>
+                        <p class="character-role">Leonida监狱出身 · 家庭动机 · 计划型行动者</p>
+                        <p class="character-desc">Lucia为家人而战进过Leonida监狱，出狱后明确要改变筹码。她追求母亲从Liberty City时代起就梦想的好生活，和Jason的关系可能是逃出生天的路径。</p>
+                        <button class="detail-toggle">剧情线索</button>
+                        <div class="detail-panel">重点观察：Trailer 1中的监狱/假释场景与Trailer 2中的抢劫片段，暗示她的故事可能从出狱、试探Jason、再到州级阴谋逐步展开。</div>
+                    </div>
+                </article>
+
+                <article class="character-card intel-card" data-character-status="confirmed">
+                    <div class="character-image"><img src="https://www.rockstargames.com/VI/_next/image?url=/VI/_next/static/media/Cal_Hampton_01.86793e65.jpg&w=1920&q=75" alt="Cal Hampton"></div>
+                    <div class="character-info">
+                        <span class="source-pill confirmed">官方建档</span>
+                        <h3>Cal Hampton</h3>
+                        <p class="character-role">Jason朋友 · Brian同伙 · 阴谋论观察者</p>
+                        <p class="character-desc">Cal习惯待在家里喝啤酒、偷听海岸警卫队通讯、刷私密浏览器标签。他的定位像是情报、通讯或阴谋支线入口。</p>
+                        <button class="detail-toggle">玩法推测</button>
+                        <div class="detail-panel">未确认但值得关注：如果游戏有通讯监听、走私路线或网络线索，Cal很可能承担任务提示或支线引导功能。</div>
+                    </div>
+                </article>
+
+                <article class="character-card intel-card" data-character-status="confirmed">
+                    <div class="character-image"><img src="https://www.rockstargames.com/VI/_next/image?url=/VI/_next/static/media/Boobie_Ike_01.8aee3bef.jpg&w=1920&q=75" alt="Boobie Ike"></div>
+                    <div class="character-info">
+                        <span class="source-pill confirmed">官方建档</span>
+                        <h3>Boobie Ike</h3>
+                        <p class="character-role">Vice City传奇 · 地产/夜店/录音室老板</p>
+                        <p class="character-desc">Boobie把街头经历转成合法帝国，覆盖房地产、脱衣舞俱乐部和录音室。他看似为自己，但Only Raw Records和Dre'Quan是他最投入的项目。</p>
+                        <button class="detail-toggle">势力价值</button>
+                        <div class="detail-panel">他可能连接夜店、音乐产业、洗钱和地产资产，是Vice City商业犯罪线的核心人物。</div>
+                    </div>
+                </article>
+
+                <article class="character-card intel-card" data-character-status="confirmed">
+                    <div class="character-image"><img src="https://www.rockstargames.com/VI/_next/image?url=/VI/_next/static/media/DreQuan_Priest_01.1b8e9422.jpg&w=1920&q=75" alt="Dre'Quan Priest" onerror="this.src='https://www.rockstargames.com/VI/_next/image?url=/VI/_next/static/media/Boobie_Ike_02.f28f47a7.jpg&w=1920&q=75'"></div>
+                    <div class="character-info">
+                        <span class="source-pill confirmed">官方建档</span>
+                        <h3>Dre'Quan Priest</h3>
+                        <p class="character-role">Only Raw Records · 街头转音乐产业</p>
+                        <p class="character-desc">Dre'Quan一直更像生意人而非传统帮派成员。即使在街头讨生活，目标也是进入音乐行业；签下Real Dimez后，他开始把目光放到Vice City音乐圈。</p>
+                        <button class="detail-toggle">关系线索</button>
+                        <div class="detail-panel">关键关系：Boobie提供资金与场地；Real Dimez是他押注的艺人组合；这条线可能连接社交媒体和夜店任务。</div>
+                    </div>
+                </article>
+
+                <article class="character-card intel-card" data-character-status="confirmed">
+                    <div class="character-image"><img src="https://www.rockstargames.com/VI/_next/image?url=/VI/_next/static/media/Real_Dimez_01.330ecd87.jpg&w=1920&q=75" alt="Real Dimez" onerror="this.src='https://www.rockstargames.com/VI/_next/image?url=/VI/_next/static/media/Vice_City_05.e8171acb.jpg&w=1920&q=75'"></div>
+                    <div class="character-info">
+                        <span class="source-pill confirmed">官方建档 · 双人组合</span>
+                        <h3>Real Dimez: Bae-Luxe & Roxy</h3>
+                        <p class="character-role">说唱组合 · 社媒流量 · Only Raw签约艺人</p>
+                        <p class="character-desc">Bae-Luxe和Roxy高中起就是朋友，靠敲诈本地毒贩、火辣说唱和社交媒体存在感变现。早期与DWNPLY合作单曲曾让她们上升，现在希望在Only Raw再来一次。</p>
+                        <button class="detail-toggle">玩法观察</button>
+                        <div class="detail-panel">她们是社交媒体系统和音乐产业线的最佳入口，适合做“热度、直播、帮派名声”类任务观察点。</div>
+                    </div>
+                </article>
+
+                <article class="character-card intel-card" data-character-status="confirmed">
+                    <div class="character-image"><img src="https://www.rockstargames.com/VI/_next/image?url=/VI/_next/static/media/Raul_Bautista_01.b4438643.jpg&w=1920&q=75" alt="Raul Bautista"></div>
+                    <div class="character-info">
+                        <span class="source-pill confirmed">官方建档</span>
+                        <h3>Raul Bautista</h3>
+                        <p class="character-role">银行劫匪 · 高风险行动组织者</p>
+                        <p class="character-desc">Raul自信、迷人且狡猾，是经验丰富的银行劫匪，寻找愿意冒最大风险换最大回报的人才。他的鲁莽会让每次行动的筹码越来越高。</p>
+                        <button class="detail-toggle">攻略重点</button>
+                        <div class="detail-panel">如果正式版有抢劫前置任务，Raul线最可能要求侦察、载具、武器、逃脱路线和团队选择。</div>
+                    </div>
+                </article>
+
+                <article class="character-card intel-card" data-character-status="confirmed">
+                    <div class="character-image"><img src="https://www.rockstargames.com/VI/_next/image?url=/VI/_next/static/media/Brian_Heder_01.10393e61.jpg&w=1920&q=75" alt="Brian Heder"></div>
+                    <div class="character-info">
+                        <span class="source-pill confirmed">官方建档</span>
+                        <h3>Brian Heder</h3>
+                        <p class="character-role">Keys老派走私者 · Jason雇主</p>
+                        <p class="character-desc">Brian是Keys走私黄金时代留下来的毒品跑手，仍通过船厂和第三任妻子Lori搬货。他让Jason免费住在他的房子里，条件是帮他处理本地敲诈。</p>
+                        <button class="detail-toggle">势力价值</button>
+                        <div class="detail-panel">Brian线可能连接船厂、走私、水上载具、Keys地区和早期经济来源。</div>
+                    </div>
+                </article>
+
+                <article class="character-card intel-card compact-character" data-character-status="mentioned">
+                    <div class="character-info">
+                        <span class="source-pill mentioned">官方提及</span>
+                        <h3>Lori Heder</h3>
+                        <p class="character-role">Brian第三任妻子</p>
+                        <p class="character-desc">官方Brian档案中提及Lori和Brian仍通过船厂搬货，也提到Jason偶尔要去喝Lori的桑格利亚汽酒。她尚未拥有独立角色页。</p>
+                    </div>
+                </article>
+
+                <article class="character-card intel-card compact-character" data-character-status="mentioned">
+                    <div class="character-info">
+                        <span class="source-pill mentioned">官方提及</span>
+                        <h3>DWNPLY</h3>
+                        <p class="character-role">本地说唱歌手</p>
+                        <p class="character-desc">Real Dimez的官方档案提到，她们曾与本地rapper DWNPLY有过早期热门单曲。此人目前属于被点名角色，尚无独立档案。</p>
+                    </div>
+                </article>
+
+                <article class="character-card intel-card compact-character" data-character-status="rumor">
+                    <div class="character-info">
+                        <span class="source-pill rumor">流传未确认</span>
+                        <h3>Stefanie</h3>
+                        <p class="character-role">Trailer 1监狱/假释场景中被社区识别的工作人员</p>
+                        <p class="character-desc">社区与媒体通过预告片画面识别出疑似名牌“Stefanie”。Rockstar尚未给她独立档案，所以本站只作为“画面识别线索”记录。</p>
+                    </div>
+                </article>
+
+                <article class="character-card intel-card compact-character" data-character-status="rumor">
+                    <div class="character-info">
+                        <span class="source-pill rumor">社区流传</span>
+                        <h3>Phil / 其他未命名NPC</h3>
+                        <p class="character-role">泄露资料与社区整理中出现的名字</p>
+                        <p class="character-desc">部分社区列表把Phil等名字列入“可能角色”，但缺少Rockstar公开档案支持。本站保留占位，不把其写入剧情事实。</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="story" class="section">
+        <div class="container">
+            <h2 class="section-title">剧情分析</h2>
+            <div class="story-intro story-intel">
+                <div class="story-text">
+                    <span class="source-pill confirmed">官方梗概</span>
+                    <p class="story-lead">Jason和Lucia在一次“看似简单的行动”失败后，被卷入横跨Leonida州的犯罪阴谋。官方叙事重点不是单次抢劫，而是两人如何在Vice City最阳光的表面下进入更黑暗的州级网络，并且越来越依赖彼此。</p>
+                    <div class="intel-metrics">
+                        <span>核心关系：Jason / Lucia</span>
+                        <span>核心舞台：Vice City + Leonida全州</span>
+                        <span>核心冲突：犯罪阴谋 + 信任压力</span>
+                    </div>
+                </div>
+                <div class="story-image">
+                    <img src="https://www.rockstargames.com/VI/_next/image?url=/VI/_next/static/media/Jason_Duval_04.374574ad.jpg&w=1920&q=75" alt="Jason和Lucia剧情画面">
+                </div>
+            </div>
+
+            <div class="story-tabs">
+                <button class="story-tab active" data-story-panel="confirmed-story">已确认主线</button>
+                <button class="story-tab" data-story-panel="trailer-story">预告片观察</button>
+                <button class="story-tab" data-story-panel="speculative-story">谨慎推测</button>
+            </div>
+
+            <div class="story-panel active" id="confirmed-story">
+                <div class="analysis-grid">
+                    <article class="analysis-card"><h3>1. 出狱与重组人生</h3><p>Lucia刚离开Leonida Penitentiary，并明确要“只做聪明决定”。她的家庭动机、Liberty City背景和想要好生活的目标，为主线提供了比单纯抢劫更强的个人驱动力。</p></article>
+                    <article class="analysis-card"><h3>2. Keys走私网络</h3><p>Jason的早期状态和Brian Heder绑定。Brian、Lori、船厂、Keys和本地敲诈构成可能的早期犯罪生态，也解释Jason为什么一开始并不是大人物。</p></article>
+                    <article class="analysis-card"><h3>3. Vice City商业犯罪</h3><p>Boobie Ike和Dre'Quan Priest把夜店、地产、录音室和社交媒体连到一起。Real Dimez代表网红化、音乐化的Vice City犯罪名声。</p></article>
+                    <article class="analysis-card"><h3>4. 高风险抢劫升级</h3><p>Raul Bautista的角色描述明确指向银行劫案和不断升高的风险。他的线索可能会把Jason和Lucia从本地跑腿推向更大规模的行动。</p></article>
+                </div>
+            </div>
+
+            <div class="story-panel" id="trailer-story">
+                <div class="analysis-grid">
+                    <article class="analysis-card"><h3>社交媒体视角</h3><p>Trailer 1和官方角色介绍持续强调短视频、直播、说唱传播和城市围观文化。攻略上应把“事件被记录/传播”视为GTA VI世界观的重要机制线索。</p></article>
+                    <article class="analysis-card"><h3>水陆移动密度</h3><p>Leonida Keys、Grassrivers和Vice City海岸线反复出现，说明水上载具、沼泽路线、桥梁和海岸逃脱会比以往更值得规划。</p></article>
+                    <article class="analysis-card"><h3>关系不是装饰</h3><p>两支预告片都把Jason和Lucia放在同一行动框架中，而不是简单轮流出场。角色关系可能影响任务语气、行动选择和故事张力。</p></article>
+                    <article class="analysis-card"><h3>地点叙事明显</h3><p>Vice City、Grassrivers、Leonida Keys、Port Gellhorn、Ambrosia、Mount Kalaga各自有不同阶层与犯罪生态，地图探索应按地区主题而非单点收集来做。</p></article>
+                </div>
+            </div>
+
+            <div class="story-panel" id="speculative-story">
+                <div class="analysis-grid">
+                    <article class="analysis-card warning-card"><h3>可能存在角色选择/对话系统</h3><p>部分媒体根据旧泄露和预告片细节讨论对话选项、趴伏移动、WhatUp应用等，但这些都不是最终玩法确认。本站将其放入“观察清单”，等官方Gameplay再更新。</p></article>
+                    <article class="analysis-card warning-card"><h3>抢劫并非唯一玩法</h3><p>Raul明显指向抢劫，但Boobie、Dre'Quan、Real Dimez、Cal和Brian分别指向商业、音乐、社媒、通讯和走私。最终主线很可能是多系统交织。</p></article>
+                    <article class="analysis-card warning-card"><h3>PC首发缺席</h3><p>截至当前公开资料，官方发售平台仍是PS5与Xbox Series X|S。PC玩家应把首发攻略重点放在情报整理和后续移植准备，而不是预购或所谓测试码。</p></article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tips" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">攻略分析与准备</h2>
+            <p class="section-note centered">游戏尚未发售，所以这里不写虚构通关路线。以下是基于官方资料、预告片记录和可信媒体分析整理的发售前攻略准备。</p>
+
+            <div class="tips-grid practical-tips">
+                <article class="tip-card intel-card">
+                    <div class="tip-header"><span class="tip-icon"><i class="fas fa-map"></i></span><h3>地图路线准备</h3></div>
+                    <div class="tip-content">
+                        <p>先用互动地图按类型筛选：预告片场景用于剧情线索，截图点用于地形识别，泄露/社区点只作为待验证参考。</p>
+                        <p>重点记录三类逃脱地形：Vice City桥梁与主干道、Grassrivers沼泽水路、Leonida Keys群岛道路断点。</p>
+                        <p>地图坐标可以右下角读取，适合后续Gameplay发布后快速补充任务点。</p>
+                    </div>
+                </article>
+                <article class="tip-card intel-card">
+                    <div class="tip-header"><span class="tip-icon"><i class="fas fa-user-group"></i></span><h3>角色关系攻略</h3></div>
+                    <div class="tip-content">
+                        <p>Jason线先关注Brian、Cal和Keys走私网络；Lucia线关注监狱背景、家庭目标和与Jason的信任变化。</p>
+                        <p>Boobie、Dre'Quan和Real Dimez代表夜店/音乐/社媒生态，可能影响名声、热度或支线机会。</p>
+                        <p>Raul的描述明确强调高风险高回报，正式版如果出现抢劫前置任务，应优先完成侦察与逃脱路线准备。</p>
+                    </div>
+                </article>
+                <article class="tip-card intel-card">
+                    <div class="tip-header"><span class="tip-icon"><i class="fas fa-video"></i></span><h3>预告片逐帧记录</h3></div>
+                    <div class="tip-content">
+                        <p>把可见载具、品牌、地点招牌、社交媒体界面、警方反应和野生动物分别做表，不要只看剧情剪辑。</p>
+                        <p>媒体已记录到WhatUp式通信、疑似对话/动作细节等线索，但在Gameplay演示前只作为“待确认机制”。</p>
+                        <p>每次官方截图更新后优先同步地图点位，再更新角色关系和地区说明。</p>
+                    </div>
+                </article>
+                <article class="tip-card intel-card">
+                    <div class="tip-header"><span class="tip-icon"><i class="fas fa-shield-halved"></i></span><h3>避坑清单</h3></div>
+                    <div class="tip-content">
+                        <p>不存在官方公开Beta码或测试注册链接。任何要求登录、付费、下载启动器的“GTA6测试”都应视为高风险。</p>
+                        <p>目前不要把2022开发泄露中的UI、任务名、动作细节当成最终版本，它们可能来自早期内部构建。</p>
+                        <p>发售日以Rockstar官方页面为准：2026年11月19日，平台为PS5和Xbox Series X|S。</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="accordion-list">
+                <button class="accordion-trigger">真实记录：Trailer 2带来的新增信息</button>
+                <div class="accordion-panel">Trailer 2确认了Jason Duval全名，补全了Lucia、Cal、Boobie、Dre'Quan、Real Dimez、Raul和Brian等角色档案，并展示更多Leonida地区画面。Rockstar还在下载页集中发布了大量角色与地区截图。</div>
+                <button class="accordion-trigger">真实记录：为什么攻略暂时不能写成通关指南</button>
+                <div class="accordion-panel">GTA VI尚未发售，也没有公开Gameplay长演示。现阶段能做的是建立“资料来源明确”的情报库：官方确认、预告片可见、媒体分析、社区传闻分层记录，等正式玩法公开后再转成路线攻略。</div>
+                <button class="accordion-trigger">真实记录：PC玩家应该怎么准备</button>
+                <div class="accordion-panel">官方当前只列出PS5和Xbox Series X|S。PC玩家可以先建立地图点位、角色关系和载具/品牌记录，避免购买所谓PC首发码、Beta码或非官方启动器。</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sources" class="section">
+        <div class="container">
+            <h2 class="section-title">资料来源</h2>
+            <div class="sources-grid">
+                <a href="https://www.rockstargames.com/VI" target="_blank" rel="noopener" class="source-card">
+                    <span class="source-pill confirmed">官方</span>
+                    <h3>Rockstar GTA VI 官网</h3>
+                    <p>发售日、平台、主线梗概、官方角色档案与地区介绍。</p>
+                </a>
+                <a href="https://www.rockstargames.com/VI/downloads/screenshots" target="_blank" rel="noopener" class="source-card">
+                    <span class="source-pill confirmed">官方</span>
+                    <h3>官方截图下载页</h3>
+                    <p>Jason、Lucia、Cal、Boobie、Dre'Quan、Real Dimez、Raul、Brian及地区截图列表。</p>
+                </a>
+                <a href="https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026" target="_blank" rel="noopener" class="source-card">
+                    <span class="source-pill confirmed">官方</span>
+                    <h3>Newswire发售日公告</h3>
+                    <p>确认GTA VI现定于2026年11月19日发布。</p>
+                </a>
+                <a href="https://www.pcgamer.com/gta-6-trailers-release-date-gameplay-details/" target="_blank" rel="noopener" class="source-card">
+                    <span class="source-pill mentioned">媒体分析</span>
+                    <h3>PC Gamer资料汇总</h3>
+                    <p>预告片细节、泄露内容边界、WhatUp等待确认机制的谨慎整理。</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>GTA VI 情报地图</h3>
+                    <p>非官方粉丝资料站。所有图片与商标归Rockstar Games及相关权利方所有。</p>
+                </div>
+                <div class="footer-section">
+                    <h3>快速入口</h3>
+                    <ul>
+                        <li><a href="map.html" target="_blank">全屏互动地图</a></li>
+                        <li><a href="#characters">角色档案</a></li>
+                        <li><a href="#tips">攻略分析</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>更新原则</h3>
+                    <p>官方确认优先；传闻只做标注；Gameplay公开后再补充真正任务流程。</p>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 GTA VI 情报地图 | 非官方粉丝网站</p></div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,445 @@
+/* ========== Popup ========== */
+#popup,
+.ol-popup {
+  position: absolute;
+  bottom: 12px;
+  left: -50px;
+  min-width: 300px;
+  max-width: 380px;
+  padding: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 100;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(18, 24, 38, 0.96) 0%,
+      rgba(12, 17, 28, 0.97) 100%
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.42),
+    0 8px 22px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  color: #f4f7ff;
+}
+
+/* Optionaler kleiner OpenLayers-Popup-Pointer */
+.ol-popup::before,
+.ol-popup::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 48px;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  border: solid transparent;
+}
+
+.ol-popup::before {
+  border-top-color: rgba(255, 255, 255, 0.08);
+  border-width: 11px;
+  margin-left: -11px;
+}
+
+.ol-popup::after {
+  border-top-color: rgba(12, 17, 28, 0.97);
+  border-width: 10px;
+  margin-left: -10px;
+}
+
+.popup-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+}
+
+/* leichter Glow / Highlight oben */
+.popup-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 72px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top left, rgba(255, 106, 127, 0.18), transparent 55%),
+    radial-gradient(circle at top right, rgba(181, 56, 183, 0.14), transparent 55%);
+  opacity: 0.9;
+}
+
+.popup-header {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  z-index: 1;
+}
+
+.popup-title-wrap {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.popup-title {
+  margin: 0;
+  font-size: 1.06rem;
+  line-height: 1.35;
+  font-weight: 800;
+  color: #ffffff;
+  display: block;
+}
+
+.popup-title-text {
+  display: block;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.popup-region {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ff9cb1;
+  font-weight: 700;
+}
+
+.popup-coords {
+  font-size: 12px;
+  color: rgba(230, 236, 255, 0.58);
+  font-family: monospace;
+  line-height: 1.35;
+}
+
+/* Share / Copy Button */
+.share-button {
+  flex-shrink: 0;
+
+  width: 30px;
+  height: 30px;
+
+  margin-top: 1px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  color: rgba(255,255,255,0.75);
+
+  transition: all 0.18s ease;
+}
+
+.share-button:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.12);
+  color: #fff;
+
+  transform: translateY(-1px);
+}
+
+/* ersetzt die bisherigen Emoji-Icons */
+.share-button::before {
+  content: "\f0c1";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.share-button:hover::before {
+  content: "\f0c1";
+}
+
+/* Falls du im HTML schon <i> nutzt */
+.share-button i {
+  font-size: 13px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.popup-tags {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.popup-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: #eef2ff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.popup-tag-type-landscape {
+  background: rgba(93, 201, 255, 0.14);
+  border-color: rgba(93, 201, 255, 0.22);
+  color: #8edfff;
+}
+
+.popup-tag-type-trailer {
+  background: rgba(214, 102, 255, 0.14);
+  border-color: rgba(214, 102, 255, 0.22);
+  color: #e2a6ff;
+}
+
+.popup-tag-type-leak {
+  background: rgba(255, 191, 71, 0.16);
+  border-color: rgba(255, 191, 71, 0.24);
+  color: #ffd978;
+}
+
+.popup-tag-type-screenshot {
+  background: rgba(255, 214, 87, 0.16);
+  border-color: rgba(255, 214, 87, 0.24);
+  color: #ffe38a;
+}
+
+.popup-image-wrap {
+  position: relative;
+  z-index: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+}
+
+.popup-image-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  object-fit: cover;
+  margin: 0;
+  border-radius: 0;
+}
+
+.popup-description {
+  position: relative;
+  z-index: 1;
+  white-space: normal;
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(242, 246, 255, 0.84);
+}
+
+.popup-description p {
+  margin: 0 0 0.8rem 0;
+}
+
+.popup-description p:last-child {
+  margin-bottom: 0;
+}
+
+.popup-source {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: rgba(226, 232, 255, 0.62);
+  line-height: 1.35;
+}
+
+.popup-source::before {
+  font-size: 13px;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+.popup-source-gtadb::before {
+  content: "🌍";
+}
+
+.popup-source-trailer::before {
+  content: "🎬";
+}
+
+.popup-source-leak::before {
+  content: "🔍";
+}
+
+.popup-source-own::before {
+  content: "⭐";
+}
+
+.popup-notes {
+  position: relative;
+  z-index: 1;
+  font-size: 12px;
+  color: rgba(226, 232, 255, 0.56);
+  line-height: 1.45;
+  padding-top: 2px;
+}
+
+.popup-actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.popup-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #ff6a7f 0%, #b538b7 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: #ffffff !important;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+
+  box-shadow: 0 8px 20px rgba(181, 56, 183, 0.28);
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.popup-action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(181, 56, 183, 0.36);
+  opacity: 0.98;
+}
+
+#popup h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+#popup a,
+.ol-popup a {
+  color: #f5f7ff;
+}
+
+#popup a:hover,
+.ol-popup a:hover {
+  color: #ff98ad;
+}
+
+#popup-content img {
+  cursor: zoom-in;
+  touch-action: manipulation;
+}
+
+#popup-content ul,
+#popup-content ol,
+#popup-content li {
+  all: revert;
+}
+
+#popup-content ul,
+#popup-content ol {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+}
+
+#popup-content li {
+  margin-bottom: 0.3rem;
+  line-height: 1.45;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  #popup,
+  .ol-popup {
+    min-width: min(320px, calc(100vw - 24px));
+    max-width: calc(100vw - 24px);
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    border-radius: 18px;
+  }
+
+  .ol-popup::before,
+  .ol-popup::after {
+    left: 50%;
+  }
+
+  .popup-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .popup-header {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .popup-title {
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  .popup-title-text {
+    flex: 1;
+    min-width: 0;
+    word-break: break-word;
+  }
+
+  .share-button {
+    width: 32px;
+    height: 32px;
+    border-radius: 11px;
+    margin-top: 1px;
+  }
+
+  .popup-image-wrap img {
+    max-height: 190px;
+  }
+
+  .popup-description {
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  .popup-actions {
+    gap: 8px;
+  }
+
+  .popup-action-btn {
+    min-height: 36px;
+    padding: 0 12px;
+    font-size: 12.5px;
+  }
+}
